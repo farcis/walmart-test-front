@@ -26,38 +26,35 @@
     <div id="root"></div>
 
     <!--------------- 01 INFO --------------->
-    <section class="container py-5" id="info">
-      <div class="row">
+    <section class="container" id="info">
         <p>Servicio al cliente Lider Whatsapp</p>
-      </div>
     </section>
     
     <!--------------- 02 SEARCHER --------------->
-    <nav class="navbar" id="searcher">
+    <nav class="container navbar" id="searcher">
       <form class="form-inline">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn" type="submit">Search</button>
       </form>
     </nav>
 
     <!--------------- 03 LIST ITEMS --------------->
-    <section class="container py-5" id="features">
+    <section class="container py-5" id="listItems">
         <div class="row">
-          <div class="col-lg-4 pb-5">
-            <img class="rounded-circle" src="images/" alt="">
-            <h4>Titulo producto <span class="descuento">50%</span></h4>
-            <p>
-              Descripcion producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus mi, eleifend vitae vehicula sed, ultrices ut
-              nibh.
-            </p>
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Titulo producto 1</h4>
+              <p class="card-text">descripcion de producto 1</p>
+              <a href="#" class="btn btn-primary">Agregar</a>
+            </div>
           </div>
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="images/" alt="">
-            <h4>Titulo producto</h4>
-            <p>
-              Descripcion producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus mi, eleifend vitae vehicula sed, ultrices ut
-              nibh.
-            </p>
+          <div class="card" style="width:400px">
+            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">Producto 2</h4>
+              <p class="card-text">descripcion de producto 2</p>
+              <a href="#" class="btn btn-primary">Agregar</a>
+            </div>
           </div>
         </div>
     </section>
@@ -78,7 +75,7 @@
     </nav>
 
     <!--------------- 05 FOOTER --------------->
-    <footer class="row justify-content-center">
+    <footer class="container justify-content-right">
       <h6>Ver información legal</h6>
     </footer>
 

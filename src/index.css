@@ -37,7 +37,12 @@ code {
 }
 
 #itemList .card{
+  width: 200px;
   background-color: #ffffff;
+}
+
+#itemList .card-title .description{
+  font-size: 15 px;
 }
 
 footer{

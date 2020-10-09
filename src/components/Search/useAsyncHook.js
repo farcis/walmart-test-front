@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios";
 
 const { REACT_APP_API_URL } = process.env;
 
 function useAsyncHook(queryProducts) {
-    const [query] = React.useState(queryProducts);
-    const [result, setResult] = React.useState([]);
-    const [loading, setLoading] = React.useState("false");
+    const [query] = useState(queryProducts);
+    const [result, setResult] = useState([]);
+    const [loading, setLoading] = useState("false");
 
-    React.useEffect(() => {
+    useEffect(() => {
         async function fetchProductList() {
 
             const reg = new RegExp('^\\d+$');

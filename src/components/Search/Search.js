@@ -1,19 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { Image, Badge } from 'react-bootstrap'
-import axios from 'axios'
 import useAsyncHook from './useAsyncHook'
 
 export default function Search() {
-    const [search, setSearch] = React.useState("");
-    const [query, setQuery] = React.useState("");
+    const [search, setSearch] = useState("");
+    const [query, setQuery] = useState("");
     const [result, loading] = useAsyncHook(query);
 
-    const sleep = (ms) => {
-        return new Promise(resolve => setTimeout(resolve, ms))
-    }
-
     // RENDER PRODUCTS 
-    let productComponents = result.map((item, index) => {
+    const productComponents = result.map((item, index) => {
         return (
             <>
                 <div className="card">

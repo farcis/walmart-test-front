@@ -18,7 +18,6 @@ function useAsyncHook(queryProducts) {
             const response = await axios(
                 REACT_APP_API_URL + '/ws/api/v1/search/' + queryProducts
             ).then(function (response) {
-                console.log(response.data);
                 setResult(response.data);
             })
 

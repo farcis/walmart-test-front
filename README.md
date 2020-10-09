@@ -1,7 +1,7 @@
 # Walmart Test Front
 
 Este proyecto es un frontend endpoint desarrollado como prueba para Walmart.
-Esta construido en React con Bootstrap y se puede ver en Heroku a traves de la siguiente [URL](https://pure-plains-86883.herokuapp.com/) 
+Esta construido en React con Bootstrap y se puede ver en Heroku a traves de la siguiente [URL](https://wm-frontend-farcis.herokuapp.com/) 
 
 Por debajo se conecta a un Rest api en Springboot y concatada a una Base de datos Mongo.
 

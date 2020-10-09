@@ -5,6 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
+    "@testing-library/react-hooks": "^3.4.2",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
@@ -44,7 +45,10 @@
   },
   "description": "Este proyecto es un frontend endpoint desarrollado como prueba para Walmart. Esta construido en React con Bootstrap y se puede ver en Heroku a traves de la siguiente [URL](https://pure-plains-86883.herokuapp.com/)",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/farcis/walmart-test-front.git"

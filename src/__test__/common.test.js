@@ -1,61 +1,36 @@
 import React from 'react';
-import { renderHook } from '@testing-library/react-hooks';
-import useAsyncHook from '../components/useAsyncHook';
+import QueryInfo from '../components/QueryInfo';
+import { render } from '@testing-library/react';
+import NavInput from '../components/NavInput';
+import Products from '../components/Products';
+import Search from '../components/Search';
 
-const useAsyncHookMock = [{"id":4,"brand":"sjlzxeo","description":"pnyn rlxbabba","image":"www.lider.cl/catalogo/images/computerIcon.svg","price":890348,"discount":50.0,"finalPrice":445174}];
+const item = [{"id":1,"brand":"ooy eqrceli","description":"rlñlw brhrka","image":"www.lider.cl/catalogo/images/whiteLineIcon.svg","price":498724,"discount":0.0,"finalPrice":0}]
 
-const mockFetch = (mockData) => {
-  global.fetch = jest.fn().mockImplementation(() =>
-    Promise.resolve({
-      json: () => Promise.resolve(mockData),
-    })
-  );
-};
+describe('components testing', () => {
 
-const mockFetchError = (error) => {
-  global.fetch = jest.fn().mockImplementation(() => Promise.reject(error));
-};
+  it("NavInput component is rendering OK", () => {
+    const { container } = render(<NavInput search="uno" setSearch={() => "dos"} setQuery={() => "tres"}/>);
+    expect(container).toBeDefined();
+    expect(container.outerHTML).toBe('<div><nav class=\"container navbar justify-content-center\" id=\"searcher\"><form data-testid=\"formsubmit\" class=\"form-inline\"><input data-testid=\"searchbox\" class=\"form-control\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\"></form></nav></div>');
+  })
 
-const mockFetchCleanUp = () => {
-  global.fetch.mockClear();
-  delete global.fetch;
-};
+  it("Products component is rendering OK", () => {
+    const { container } = render(<Products result={item}/>);
+    expect(container).toBeDefined();
+    expect(container.outerHTML).toBe('<div><div class=\"card\"><img src=\"http://www.lider.cl/catalogo/images/whiteLineIcon.svg\" class=\"card-img-top rounded\"><div class=\"card-body\"><h4 class=\"card-title\"><strong>ooy eqrceli</strong> <span class=\"description\">rlñlw brhrka</span></h4><p class=\"card-text\">$498724<span></span></p><a href=\"#\" class=\"btn btn-primary\">Agregar</a></div></div></div>');
+  })
 
-describe('useApi Hook', () => {
-  it('initial and success state', async () => {
-    mockFetch(useAsyncHookMock);
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useApiFetch('lorem')
-    );
-    expect(result.current).toMatchObject({
-      data: [],
-      error: '',
-      state: 'LOADING',
-    });
+  it("QueryInfo component is rendering OK", () => {
+    const { container } = render(<QueryInfo query="uno"/>);
+    expect(container).toBeDefined();
+    expect(container.outerHTML).toBe('<div><div class=\"container\"><p id=\"info\">Resultados para: <strong>uno</strong></p></div></div>');
+  })
 
-    await waitForNextUpdate();
+  it("Search component is rendering OK", () => {
+    const { container } = render(<Search />);
+    expect(container).toBeDefined();
+    expect(container.outerHTML).toBe('<div><nav class=\"container navbar justify-content-center\" id=\"searcher\"><form data-testid=\"formsubmit\" class=\"form-inline\"><input data-testid=\"searchbox\" class=\"form-control\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\"></form></nav><div class=\"container\"><p id=\"info\">Resultados para: <strong></strong></p></div><section class=\"container py-5\" id=\"itemList\"><div class=\"row justify-content-center\"></div></section></div>');
+  })
 
-    expect(result.current).toMatchObject({
-      data: useApiFetchMock,
-      error: '',
-      state: 'SUCCESS',
-    });
-    mockFetchCleanUp();
-  });
-
-/*   it('error state', async () => {
-    mockFetchError('Network Error');
-
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useApiFetch('lorem')
-    );
-    await waitForNextUpdate();
-    mockFetchCleanUp();
-
-    expect(result.current).toMatchObject({
-      data: [],
-      error: 'Fetch failed',
-      state: 'ERROR',
-    });
-  }); */
 });

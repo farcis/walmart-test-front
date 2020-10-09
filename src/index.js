@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Search from './components/Search/Search';
+import Search from './components/Search';
 import * as serviceWorker from './serviceWorker';
 
 
